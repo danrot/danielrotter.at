@@ -37,7 +37,6 @@
 			"D3.js",
 			"Doctrine",
 			"Firefox",
-			"Flow",
 			"flow-typed",
 			"HTTPie",
 			"JavaScript",
@@ -45,7 +44,7 @@
 			"Kubernetes",
 			"Neovim",
 			"TypeScript",
-			"typescript-eslint",
+			"typescript-eslint"
 		]
     },
     "no-alt-text": true,
