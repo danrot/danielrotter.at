@@ -10,9 +10,10 @@ tags:
 
 One of the rather tedious tasks of a developer is to generate changelogs. I cannot imagine that anybody enjoys going
 through the project history and try to reverse engineer what has happened since the last release. But the good news is
-that with a bit of discipline it is quite straightforward to generate those changelogs from your version control
-history. The examples in this blog post will use [git](https://git-scm.com/), but I guess every (mature) version control
-system will have similar commands as the ones being used here.
+that by [keeping a clean history](/2023/10/28/git-bisect-and-the-importance-of-a-clean-history.html) it is quite
+straightforward to generate those changelogs from your version control history. The examples in this blog post will use
+[git](https://git-scm.com/), but I guess every (mature) version control system will have similar commands as the ones
+being used here.
 
 The explained process only works if some rules are followed while using git:
 
