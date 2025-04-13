@@ -34,6 +34,10 @@
 	}
 }
 
+@view-transition {
+	navigation: auto;
+}
+
 a:link {
 	color: var(--a-link-color, revert);
 }
