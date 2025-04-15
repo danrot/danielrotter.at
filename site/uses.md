@@ -31,14 +31,19 @@ working on.
 
 ## Editor
 
-I use [Neovim](http://neovim.io/) as an editor respectively IDE exclusively. In contrast to popular belief it supports
-quite a lot, including auto-completion and debugging (at least with some extensions). Maybe it takes a bit more time to
-set everything up the way you like it, but in my opinion it is totally worth it. My [Neovim
+I used [Neovim](http://neovim.io/) as an editor respectively IDE for quite some time. In contrast to popular belief it
+supports quite a lot, including auto-completion and debugging (at least with some extensions). Maybe it takes a bit more
+time to set everything up the way you like it, but in my opinion it is totally worth it. My [Neovim
 configuration](https://github.com/danrot/dotfiles/blob/master/nvim/init.lua) is available on GitHub.
+
+However, I made the switch to [Helix](https://helix-editor.com/). Even though it sometimes feels a bit rough around the
+edges it supports of the features I need out of the box, which means there is almost no need for extensions. The hardest
+part was re-training my muscle memory to get used to its keyboard mapping, which is quite different, but it feels like I
+can get things done with less keystrokes.
 
 ## Terminal
 
-Since I am programming using Neovim, I am spending most of my time in a terminal, which is
+Since I am programming using Helix and previously Neovim, I am spending most of my time in a terminal, which is
 [kitty](https://sw.kovidgoyal.net/kitty/) in my case. It is incredibly fast and is highly configurable. I also like that
 it has built-in support for tabs and window splits. This means there is no need for an additional terminal multiplexer
 like tmux, which did never work very well for me, especially when I wanted to copy multiple lines from the terminal. My
