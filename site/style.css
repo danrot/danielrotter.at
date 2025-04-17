@@ -1,3 +1,8 @@
+:root {
+	--root-margin: 20px;
+	--navigation-width: 20vw;
+}
+
 @media (prefers-color-scheme: light) {
 	:root {
 		--strong-background-color: #ffff80;
@@ -61,8 +66,29 @@ strong {
 body {
 	background-color: var(--body-background-color, revert);
 	color: var(--body-color, revert);
+	display: grid;
+	gap: var(--root-margin);
+	grid-template-columns: var(--navigation-width) auto;
+	grid-template-areas:
+		"nav header"
+		"nav main"
+	;
+	transition: margin-left 0.5s;
+	margin: var(--root-margin);
+	margin-left: calc(var(--navigation-width) * -1);
+
+	&:has(#menu-toggle:checked) {
+		margin-left: 0;
+	}
+
+	> nav {
+		grid-area: nav;
+		overflow: hidden;
+	}
 
 	> header {
+		grid-area: header;
+
 		address {
 			a[rel="author"] {
 				color: inherit;
@@ -95,6 +121,22 @@ body {
 			margin: 0.5em 0;
 		}
 	}
+
+	> main {
+		grid-area: main;
+	}
+}
+
+#menu-toggle {
+	&:checked::before {
+		content: 'Hide navigation';
+	}
+
+	&::before {
+		content: 'Show navigation';
+
+	}
+	appearance: none;
 }
 
 article {
