@@ -1,8 +1,8 @@
 <article>
 	<header>
-		<h1>$title$</h1>
-		<div>${for(tags) }${tags}${sep}, ${endfor}</div>
-		<time datetime="$date$" pubdate>$date$</time>
+		<h1 style="view-transition-name: title-$date$;">$title$</h1>
+		<div style="view-transition-name: tags-$date$">${for(tags) }${tags}${sep}, ${endfor}</div>
+		<time style="view-transition-name: time-$date$" datetime="$date$" pubdate>$date$</time>
 		$if(last_modified_at)$(last modified on <time datetime="$last_modified_at$">$last_modified_at$</time>)$endif$
 	</header>
 
