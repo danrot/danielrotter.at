@@ -1,15 +1,79 @@
-@media (prefers-color-scheme: light) {
-	:root {
-		--strong-background-color: #ffff80;
-		--code-background-color: #eee;
-		--syntax-color-1: #666;
-		--syntax-color-2: #b85200;
-		--syntax-color-3: #075eb0;
-		--syntax-color-4: #856011;
-		--syntax-color-5: #a81990;
-		--syntax-color-6: #2e6b36;
-		--syntax-color-7: #0e807e;
-	}
+@property --body-background-color {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #fff;
+}
+
+@property --body-color {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #000;
+}
+
+@property --a-link-color {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #00e;
+}
+
+@property --a-visited-color {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #551a8b;
+}
+
+@property --strong-background-color {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #ffff80;
+}
+
+@property --code-background-color {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #eee;
+}
+
+@property --syntax-color-1 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #666;
+}
+
+@property --syntax-color-2 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #b85200;
+}
+
+@property --syntax-color-3 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #075eb0;
+}
+
+@property --syntax-color-4 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #856011;
+}
+
+@property --syntax-color-5 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #a81990;
+}
+
+@property --syntax-color-6 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #2e6b36;
+}
+
+@property --syntax-color-7 {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #0e807e;
 }
 
 @media (prefers-color-scheme: dark) {
