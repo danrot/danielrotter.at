@@ -22,6 +22,18 @@
 	initial-value: #551a8b;
 }
 
+@property --button-shadow-color {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #f00;
+}
+
+@property --button-hover-shadow-color {
+	syntax: '<color>';
+	inherits: true;
+	initial-value: #0f0;
+}
+
 @property --strong-background-color {
 	syntax: '<color>';
 	inherits: true;
@@ -182,7 +194,23 @@ article {
 
 	footer {
 		font-style: italic;
-		margin-top: 3em;
+
+		> a:is(:link, :visited) {
+			background-color: var(--body-color);
+			border-radius: 1em;
+			box-shadow: 0 0 0.5em var(--button-shadow-color);
+			color: var(--body-background-color);
+			display: inline-block;
+			font-size: 1.5rem;
+			margin: 10px;
+			padding: 10px;
+			text-decoration: none;
+			transition: box-shadow 0.5s;
+
+			&:hover {
+				box-shadow: 0 0 1em var(--button-hover-shadow-color);
+			}
+		}
 	}
 }
 
@@ -193,9 +221,9 @@ code:not(div.sourceCode code):not(pre.plaintext code) {
 }
 
 div.sourceCode, pre.plaintext {
-	overflow: scroll;
 	background-color: var(--code-background-color);
 	border-radius: 10px;
+	overflow: scroll;
 	padding: 10px;
 
 	pre {
