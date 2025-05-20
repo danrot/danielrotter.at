@@ -76,6 +76,24 @@
 	initial-value: #0e807e;
 }
 
+@property --angle {
+	syntax: '<angle>';
+	inherits: true;
+	initial-value: 0deg;
+}
+
+@property --blur {
+	syntax: '<length>';
+	inherits: true;
+	initial-value: 0px;
+}
+
+@property --inset {
+	syntax: '<length>';
+	inherits: true;
+	initial-value: 0px;
+}
+
 @media (prefers-color-scheme: dark) {
 	:root {
 		--body-background-color: #222;
@@ -182,7 +200,46 @@ article {
 
 	footer {
 		font-style: italic;
-		margin-top: 3em;
+
+		> a:is(:link, :visited) {
+			background-color: var(--body-background-color);
+			border-radius: 1em;
+			border: 1px solid var(--body-color);
+			color: var(--body-color);
+			display: inline-block;
+			font-size: 1.5rem;
+			margin-bottom: 10px;
+			padding: 10px;
+			position: relative;
+			text-decoration: none;
+
+			&::before {
+				--angle: 90deg;
+				--blur: 5px;
+				--inset: -3px;
+				background: conic-gradient(from var(--angle) in hsl shorter hue, red, yellow, red, orange);
+				border-radius: inherit;
+				content: '';
+				filter: blur(var(--blur));
+				inset: var(--inset);
+				position: absolute;
+				transition: --angle 0.5s, --blur 0.5s, --inset 0.5s;
+				z-index: -1;
+			}
+
+			&:is(:hover, :focus) {
+				&::before {
+					--inset: -15px;
+					--blur: 25px;
+				}
+			}
+
+			&:active {
+				&::before {
+					--angle: 170deg;
+				}
+			}
+		}
 	}
 }
 
@@ -193,9 +250,9 @@ code:not(div.sourceCode code):not(pre.plaintext code) {
 }
 
 div.sourceCode, pre.plaintext {
-	overflow: scroll;
 	background-color: var(--code-background-color);
 	border-radius: 10px;
+	overflow: scroll;
 	padding: 10px;
 
 	pre {
