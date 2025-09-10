@@ -174,7 +174,8 @@ function enhanceDatagridRoute(DatagridRouteBuilder $builder) {
 ```
 
 At Sulu we have used a [similar approach](https://github.com/sulu/sulu/blob/0114e8c95b28e006173b9236b85656aba590984e/src/Sulu/Bundle/SecurityBundle/AccessControl/AccessControlQueryEnhancer.php#L32)
-a few times for the [`QueryBuilder` of Doctrine](https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/query-builder.html).
+a few times for the [`QueryBuilder` of
+Doctrine](https://www.doctrine-project.org/projects/doctrine-orm/en/2.10/reference/query-builder.html).
 
 ```php
 <?php
@@ -198,7 +199,7 @@ function enhance(
 
 This simplified example from the Sulu codebase will make a join to our access control table, and that can be reused for
 every query we make. This way of doing things is enabled by the use of `Builder` pattern. Doing something similar with
-[plain DQL](https://www.doctrine-project.org/projects/doctrine-orm/en/2.7/reference/dql-doctrine-query-language.html)
+[plain DQL](https://www.doctrine-project.org/projects/doctrine-orm/en/2.10/reference/dql-doctrine-query-language.html)
 would require being much more careful about building the query from the very beginning, which might be very cumbersome
 and not a good developer experience. Therefore I almost always use a `QueryBuilder` instead of DQL.
 
