@@ -26,17 +26,17 @@ ${INDEX_HTML}: ${POSTS} ${PAGES} ${MASTER_TEMPLATE}
 	[ ! -f ${INDEX_HTML} ] || rm ${INDEX_HTML}
 	echo '## Blog posts' >> ${INDEX_MD}
 	for file in $$(echo "${POSTS}" | tr ' ' '\n' | sort -r) ; do \
-		date=$$(rg --only-matching "<time datetime=\"([^\"]+)\" pubdate" $$file -r '$$1') ; \
-		title=$$(rg --only-matching "<h1>([^<]+)" $$file -r '$$1') ; \
-		tags=$$(rg --only-matching --multiline '</h1>\s*<div>([^<]*)</div>' $$file -r '$$1') ; \
-		echo "- <time datetime=\"$$date\">$$date</time>: [$$title]($${file#${DIST_FOLDER}}) ($$tags)" >> ${INDEX_MD} ; \
+		date=$$(rg --only-matching "<time style=\"[^\"]*\" datetime=\"([^\"]+)\" pubdate" $$file -r '$$1') ; \
+		title=$$(rg --only-matching "<h1 style=\"[^\"]*\">([^<]+)" $$file -r '$$1') ; \
+		tags=$$(rg --only-matching --multiline '</h1>\s*<div style=\"[^\"]*\">([^<]*)</div>' $$file -r '$$1') ; \
+		echo "- <time style=\"view-transition-name: time-$$date\" datetime=\"$$date\">$$date</time>: [<span style=\"view-transition-name: title-$$date\">$$title</span>]($${file#${DIST_FOLDER}}) (<span style=\"view-transition-name: tags-$$date\">$$tags<span>)" >> ${INDEX_MD} ; \
 	done
 	echo '' >> ${INDEX_MD}
 	echo '## Slash pages' >> ${INDEX_MD}
 	for file in $$(echo "${PAGES}" | tr ' ' '\n' | sort) ; do \
 		title=$$(rg --only-matching "<h1>([^<]+)" $$file -r '$$1') ; \
 		excerpt=$$(rg --only-matching "<meta name=\"description\" content=\"([^\"]+)\"" $$file -r '$$1') ; \
-		echo "- [$$title]($${file#${DIST_FOLDER}}): $$excerpt" >> ${INDEX_MD} ; \
+		echo "- [<span style=\"view-transition-name: time-$$date\">$$title<span>]($${file#${DIST_FOLDER}}): $$excerpt" >> ${INDEX_MD} ; \
 	done
 	pandoc \
 		--template ${MASTER_TEMPLATE} \
@@ -54,8 +54,8 @@ ${SITEMAP_XML}: ${POSTS} ${PAGES}
 	echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> ${SITEMAP_XML}
 
 	for file in $$(echo "${POSTS}" | tr ' ' '\n') ; do \
-		lastmodifieddate=$$(rg --only-matching "<time datetime=\"([^\"]+)\">" $$file -r '$$1' || echo '') ; \
-		[ -z "$${lastmodifieddate}" ] && lastmodifieddate=$$(rg --only-matching "<time datetime=\"([^\"]+)\" pubdate" $$file -r '$$1') ; \
+		lastmodifieddate=$$(rg --only-matching "<time style=\"[^\"]*\" datetime=\"([^\"]+)\">" $$file -r '$$1' || echo '') ; \
+		[ -z "$${lastmodifieddate}" ] && lastmodifieddate=$$(rg --only-matching "<time style=\"[^\"]*\" datetime=\"([^\"]+)\" pubdate" $$file -r '$$1') ; \
 		echo '<url>' >> ${SITEMAP_XML} ; \
 		echo "<loc>${URL}$${file#${DIST_FOLDER}}</loc>" >> ${SITEMAP_XML} ; \
 		echo "<lastmod>$$lastmodifieddate</lastmod>" >> ${SITEMAP_XML} ; \
@@ -89,11 +89,11 @@ ${FEED_XML}: ${POSTS}
 
 	for file in $$(echo "${POSTS}" | tr ' ' '\n' | sort -r) ; do \
 		url=${URL}/$${file#${DIST_FOLDER}} ; \
-		title=$$(rg --only-matching "<h1>([^<]+)" $$file -r '$$1') ; \
-		published=$$(rg --only-matching "<time datetime=\"([^\"]+)\" pubdate" $$file -r '$$1') ; \
+		title=$$(rg --only-matching "<h1 style=\"[^\"]*\">([^<]+)" $$file -r '$$1') ; \
+		published=$$(rg --only-matching "<time style=\"[^\"]*\" datetime=\"([^\"]+)\" pubdate" $$file -r '$$1') ; \
 		updated=$$(rg --only-matching "<time datetime=\"([^\"]+)\">" $$file -r '$$1' || echo '') ; \
 		[ -z "$${updated}" ] && updated=$$published ; \
-		tags=$$(rg --only-matching --multiline '</h1>\s*<div>([^<]*)</div>' $$file -r '$$1') ; \
+		tags=$$(rg --only-matching --multiline '</h1>\s*<div style=\"[^\"]*\">([^<]*)</div>' $$file -r '$$1') ; \
 		excerpt=$$(rg --only-matching "<meta name=\"description\" content=\"([^\"]+)\"" $$file -r '$$1') ; \
 		echo '<entry>' >> ${FEED_XML} ; \
 		echo "<title type=\"html\">$$title</title>" >> ${FEED_XML} ; \
