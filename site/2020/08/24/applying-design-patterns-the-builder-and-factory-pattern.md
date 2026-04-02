@@ -27,7 +27,7 @@ In order to better understand why we have chosen to use these patterns, I will t
 to deal with before. The use case was to create something we called `Route` at the time (now it has been renamed to
 `View`), which is a representation of a URL of our
 [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application).  This `Route` did not only contain
-the URL itself, but also a reference to a [React](https://reactjs.org/) component, which should be shown if the defined
+the URL itself, but also a reference to a [React](https://react.dev/) component, which should be shown if the defined
 URL was active. Since we also needed to reference routes in the system, we also added a name parameter to the route.
 These were the crucial parts of a route, and always had to be given, so we decided to put them into the constructor of
 the `Route` class. We didn't want to implement a separate React component for every single route, therefore we made

@@ -50,7 +50,8 @@ like tmux, which did never work very well for me, especially when I wanted to co
 [kitty configuration](https://github.com/danrot/dotfiles/blob/master/kitty/kitty.conf) is also available on GitHub. In
 the same folder I have some `.kitty` files, which I use to setup new tabs for certain situations.
 
-The shell I am using is [fish](https://fishshell.com/), which works pretty well out of the box. I love that it parses
-the man pages installed on the system and provide auto completions based on it. I am also making heavy use of its
-[abbreviation feature](https://fishshell.com/docs/current/interactive.html#abbreviations). My entire [fish
-configuration](https://github.com/danrot/dotfiles/blob/master/fish/config.fish) is also available on GitHub.
+I switched back from the [fish shell](https://fishshell.com/) to [bash](https://www.gnu.org/software/bash/), because I
+started to work a lot on servers, which only have bash pre-installed. I have put some effort into the [bash
+configuration](https://github.com/danrot/dotfiles/blob/master/bash/bash_profile.sh), which is also available on GitHub.
+As it turns out I am not missing the convenience features of fish too much, and working with the same shell all the time
+feels really nice.

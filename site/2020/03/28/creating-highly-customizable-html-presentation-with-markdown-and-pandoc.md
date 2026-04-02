@@ -42,7 +42,7 @@ importance of this language to this company.
 
 Then I stumbled upon this tweet of [Max Stoiber](https://twitter.com/mxstbr), which sounded interesting. A NPM package
 that allows to write slides in markdown and afterwards serve them via a webserver using
-[Gatsby](https://www.gatsbyjs.org/) under the hood.
+[Gatsby](https://www.gatsbyjs.com/) under the hood.
 
 > How to quickly create a talk from scratch 🔥
 >

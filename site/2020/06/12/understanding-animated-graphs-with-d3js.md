@@ -77,11 +77,12 @@ which means there will be three `circle` elements once the call is finished, one
 
 Afterwards the [`style`](https://github.com/d3/d3-selection#style) and
 [`attr`](https://github.com/d3/d3-selection#selection_attr) calls are used on these circles, in order to style them in
-some way. Checkout the [`circle` documenation on MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/circle)
-in order to learn about the available properties. These functions are not only taking simple values; they also accept
-functions as arguments. **If a function gets passed, this function will be called with the value (the `d` variable) and
-the index (the `i` variable) of the current data point.** This way we can set the radius `r` to the passed value, and
-move the circles to the right using the index to calculate the `cx` attribute.
+some way. Checkout the [`circle` documenation on
+MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/circle) in order to learn about the available
+properties. These functions are not only taking simple values; they also accept functions as arguments. **If a function
+gets passed, this function will be called with the value (the `d` variable) and the index (the `i` variable) of the
+current data point.** This way we can set the radius `r` to the passed value, and move the circles to the right using
+the index to calculate the `cx` attribute.
 
 With these few lines of code we have already created three red circles with a radius of 10, 30 and 20 pixels.
 
@@ -148,8 +149,8 @@ moment we don't do anything special with these elements, so we are just returnin
 3. The **`exit` callback** is called for elements in the visualization, that do not have a data point in the new data
 set anymore. This example uses the `remove` method to delete these elements immediately.
 
-*In case you are familar with [React](https://reactjs.org/), you can think of D3.js doing a similar job: You just tell
-it what should happen on each case, and D3.js figures out for you when to call which function.*
+*In case you are familar with [React](https://react.dev/), you can think of D3.js doing a similar job: You just tell it
+what should happen on each case, and D3.js figures out for you when to call which function.*
 
 Since except for appending new circles for the `enter` set we often want to handle the `enter` and `update` set in the
 same way, the `join` method will merge these two sets and return the combination of both. So the return value of the
