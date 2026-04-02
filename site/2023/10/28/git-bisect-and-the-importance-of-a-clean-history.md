@@ -315,8 +315,8 @@ hunting down the error harder since the commit might return hundreds of lines, a
 still better than not being able to use the feature at all, because some developers commit code not working properly.
 Luckily both
 [GitHub](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)
-and [Bitbucket](https://bitbucket.org/blog/git-squash-commits-merging-bitbucket) support squashing commits when merging
-pull requests.
+and [Bitbucket](https://www.atlassian.com/blog/bitbucket/git-squash-commits-merging-bitbucket) support squashing commits
+when merging pull requests.
 
 A completely different approach would be to use [continuous
 integration](https://martinfowler.com/articles/branching-patterns.html#continuous-integration), and by that I do not

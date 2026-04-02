@@ -9,8 +9,8 @@ tags:
     - react
 ---
 
-[React hooks](https://reactjs.org/docs/hooks-intro.html) have been introduced in React 16.8. Their aim is described on
-the react documentation:
+[React hooks](https://legacy.reactjs.org/docs/hooks-intro.html) have been introduced in React 16.8. Their aim is
+described on the react documentation:
 
 > They let you use state and other React features without writing a class.
 
@@ -33,11 +33,11 @@ reasons I like them after I got used to them.
 ### Hooks compose nicely
 
 What is objectively nice about hooks is that they compose in a very nice way. There are some prebuilt hooks
-([`useState`](https://reactjs.org/docs/hooks-state.html) and [`useEffect`](https://reactjs.org/docs/hooks-effect.html)
-are probably the most prominent ones), that **can be easily used in hooks built in a custom way for projects**, and a
-custom hook is just another function that might reuse existing hooks. A simple made-up scenario would be a custom hook,
-that also returns the doubled value of a state, which could be implemented because the doubled value is required quite
-often in a web application (for whatever reason).
+([`useState`](https://legacy.reactjs.org/docs/hooks-state.html) and
+[`useEffect`](https://legacy.reactjs.org/docs/hooks-effect.html) are probably the most prominent ones), that **can be
+easily used in hooks built in a custom way for projects**, and a custom hook is just another function that might reuse
+existing hooks. A simple made-up scenario would be a custom hook, that also returns the doubled value of a state, which
+could be implemented because the doubled value is required quite often in a web application (for whatever reason).
 
 ```javascript
 function useStateWithDouble(initialValue) {
@@ -76,11 +76,11 @@ for very easy code reuse among different components.
 
 Another thing I like is the idea of the `useEffect` hook (although I think hooks are not absolutely necessary for that
 idea). Previously [lifecycle
-methods](https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) had to be used instead.
-They allowed to execute code when e.g. the component was mounted into or unmounted from the DOM, but the problem was
-that code that actually belongs together was split. E.g. if a component that counts the elapsed seconds was developed,
-then a `setInterval` was started when the component mounted and `clearInterval` was called when the component was
-unmounted. This is exactly what the `componentDidMount` and `componentWillUnmount` functions in the code below are
+methods](https://legacy.reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) had to be used
+instead. They allowed to execute code when e.g. the component was mounted into or unmounted from the DOM, but the
+problem was that code that actually belongs together was split. E.g. if a component that counts the elapsed seconds was
+developed, then a `setInterval` was started when the component mounted and `clearInterval` was called when the component
+was unmounted. This is exactly what the `componentDidMount` and `componentWillUnmount` functions in the code below are
 doing.
 
 ```javascript
@@ -288,7 +288,7 @@ the problem described in this blog post was a serious issue in my development wo
 
 Some people might also think that the return values of e.g. the `useState` hook is a bit weird (probably even the react
 team themselves, since [they devoted an own section in the documentation for
-it](https://reactjs.org/docs/hooks-state.html#tip-what-do-square-brackets-mean)).
+it](https://legacy.reactjs.org/docs/hooks-state.html#tip-what-do-square-brackets-mean)).
 
 ```javascript
 export default function App() {

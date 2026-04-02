@@ -34,11 +34,11 @@ seven testing an API that needs authentication**.
 I do not know of any browser offering a similar option for HTTPie, and that alone is enough reason for me to stick with
 curl.
 
-Fortunately, there is the [`jq`](https://jqlang.github.io/jq/), which is a command-line JSON processor. The great thing
-about it is that it allows you to pretty print JSON, filter and/or transform it, etc., but does not care about where it
-gets its input from. **Therefore it is very versatile and can be used in many different scenarios.** One scenario for
-which I used it recently is to pretty print the log output of a Kubernetes container, which used JSON as log format. It
-was hardly possible to read that output, therefore I used `jq` without any arguments to pretty-print the output, which
+Fortunately, there is the [`jq`](https://jqlang.org/), which is a command-line JSON processor. The great thing about it
+is that it allows you to pretty print JSON, filter and/or transform it, etc., but does not care about where it gets its
+input from. **Therefore it is very versatile and can be used in many different scenarios.** One scenario for which I
+used it recently is to pretty print the log output of a Kubernetes container, which used JSON as log format. It was
+hardly possible to read that output, therefore I used `jq` without any arguments to pretty-print the output, which
 results in syntax-highlighted and properly formatted text that is easy to read. The example command `cat log.json | jq`
 in the following screenshot uses a simple file for demonstration purposes, but it does not matter where the command
 before the pipe gets the content from, as long as it outputs it.
@@ -46,7 +46,7 @@ before the pipe gets the content from, as long as it outputs it.
 ![`jq` highlighting JSON results in a much easier to read text](/images/posts/jq-highlighted-json.webp)
 
 `jq` would even allow filtering e.g. by the level of the log message using its [`select`
-function](https://jqlang.github.io/jq/manual/#select(boolean_expression)), and there are many other possibilities.
+function](https://jqlang.org/manual/#select), and there are many other possibilities.
 
 Combining `jq` with the `curl` command results in a JSON output from an HTTP API to be shown properly indented and with
 syntax highlighting, which is one of the best features of HTTPie. The command for this would be something like that:
@@ -102,5 +102,5 @@ curl 'https://127.0.0.1:8000/admin/config' | jq .sulu_admin.collaborationInterva
 update.** And that even without looking for it in a huge pile of JSON.
 
 `jq` is a really powerful tool, and there are many more opportunities to use it. I highly recommend checking out the [jq
-Manual](https://jqlang.github.io/jq/manual/) if you are working with JSON a lot, I am sure there are some ways you can
+Manual](https://jqlang.org/manual/) if you are working with JSON a lot, I am sure there are some ways you can
 benefit from it!

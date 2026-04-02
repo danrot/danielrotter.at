@@ -173,8 +173,8 @@ need to be done once and all my presentations can be updated easily afterwards b
 time has also been reduced by only generating images if nothing has changed.
 
 However, I think it is very important to mention that [this approach does not work for projects with a more complex
-dependency structure](https://github.blog/2016-02-01-working-with-submodules/). Git submodules will always install the
-latest version of the repository, and it is not possible to define dependencies or conflicts between multiple
+dependency structure](https://github.blog/open-source/git/working-with-submodules/). Git submodules will always install
+the latest version of the repository, and it is not possible to define dependencies or conflicts between multiple
 submodules. I still think that for a use case like the one above it is a pretty good fit, since it is pretty
 straightforward. I hope that this kind of setup can also be of some help for your simplistic (at least in terms of
 dependencies) projects!

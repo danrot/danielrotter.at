@@ -189,7 +189,7 @@ closing `body` tag, and they will appear on top of everything else. At least if 
 somewhere, because the browser will render elements appearing later in the HTML source on top of elements that appear
 sooner. That part actually sounds quite easy, right?
 
-The problem is that with libraries endorsing thinking in components (like e.g [React](https://reactjs.org/)) this is not
+The problem is that with libraries endorsing thinking in components (like e.g [React](https://react.dev/)) this is not
 that easy to achieve. That's because a component somewhere deep in the component tree might want to render an overlay,
 that should appear on top of all the other elements, no matter where it is located in the source code. Let's assume your
 application has a structure like this:
@@ -325,14 +325,14 @@ impacts accessibility, but I guess fiddeling around with `z-index` values does a
 
 Now the only remaining open question is how a component like an overlay fits into that equation, especially if a
 component deep in the component tree wants to render it. Actually
-[React has a built-in concept called portals](https://reactjs.org/docs/portals.html) helping exactly with that. Portals
-allow to break out of the DOM of the parent component. This also fixes other problems with overlays, like the fact that
-if the parent has `overflow` set to `hidden` it is not possible to display anything outside the parent container. We use
-portals quite a lot, and append stuff at the end of the body tag. Since the elements are now rendered at the very end of
-the `body` tag --- and we don't have any other `z-index` set --- setting a `z-index` is not necessary at all! The only
-drawback I ran into was that the order in the DOM seems to be dependant on when the portal code is called. That lead to
-a confusing situation I was able to fix quite fast, and it didn't make any problems anymore. Still feels like something
-that is good to know and might help debugging situations like this.
+[React has a built-in concept called portals](https://legacy.reactjs.org/docs/portals.html) helping exactly with that.
+Portals allow to break out of the DOM of the parent component. This also fixes other problems with overlays, like the
+fact that if the parent has `overflow` set to `hidden` it is not possible to display anything outside the parent
+container. We use portals quite a lot, and append stuff at the end of the body tag. Since the elements are now rendered
+at the very end of the `body` tag --- and we don't have any other `z-index` set --- setting a `z-index` is not necessary
+at all! The only drawback I ran into was that the order in the DOM seems to be dependant on when the portal code is
+called. That lead to a confusing situation I was able to fix quite fast, and it didn't make any problems anymore. Still
+feels like something that is good to know and might help debugging situations like this.
 
 Last note: I mentioned that I removed only almost all `z-index`. Some are still necessary, but only because of some
 third party libraries making use of `z-index`. The solution there was to set a `z-index` of `0` on my own on a parent
